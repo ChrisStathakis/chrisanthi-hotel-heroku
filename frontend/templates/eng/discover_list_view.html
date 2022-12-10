@@ -1,0 +1,58 @@
+{% extends 'gr/index.html' %} {% load static %}
+
+{% block content %}
+
+    <!-- page wrapper -->
+  <div class="knsl-app">
+
+   {% include 'include/navbar_eng.html' %}
+
+
+    <!-- banner -->
+    <section class="knsl-banner-simple knsl-transition-bottom">
+      <img src="{% static 'img/palm.svg' %}" class="knsl-deco-left" alt="palm">
+      <img src="{% static 'img/palm.svg' %}" class="knsl-deco-right" alt="palm">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+
+            <div class="knsl-center knsl-title-frame">
+              <h1 class="knsl-mb-20 knsl-h1-inner">DESTINATIONS</h1>
+              <p class="knsl-mb-30">Laborum accusantium libero commodi. Voluptate consequatur itaque expedita accusamus impedit perspiciatis asperiores necessitatibus assumenda magnam ipsa.</p>
+              <ul class="knsl-breadcrumbs">
+                <li><a href="{% url 'homepage_eng' %}">Homepage</a></li>
+                <li><span>Destinations</span></li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- banner end -->
+
+    <!-- blog -->
+    <section class="knsl-p-100-100">
+      <img src="{% static 'img/palm.svg' %}" class="knsl-deco-left" alt="palm">
+        <div class="container">
+            <div class="row align-items-center">
+                {% for ele in object_list %}
+                    <div class="col-4">
+                    {% include 'include/destination_card_eng.html' %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+
+
+   {% include 'include/footer_eng.html' %}
+
+
+
+
+  </div>
+  <!-- page wrapper end -->
+
+{% endblock %}

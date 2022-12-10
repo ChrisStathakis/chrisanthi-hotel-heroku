@@ -1,0 +1,67 @@
+{% extends 'gr/index.html' %} {% load static %}
+
+{% block content %}
+
+
+
+   {% include 'include/navbar.html' %}
+
+
+    <!-- banner -->
+    <section class="knsl-banner-simple knsl-transition-bottom">
+      <img src="{% static 'img/palm.svg' %}" class="knsl-deco-left" alt="palm">
+      <img src="{% static 'img/palm.svg' %}" class="knsl-deco-right" alt="palm">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+
+            <div class="knsl-center knsl-title-frame">
+              <h1 class="knsl-mb-20 knsl-h1-inner">ΠΡΟΟΡΙΣΜΟΙ</h1>
+                <br />
+              <ul class="knsl-breadcrumbs">
+                <li><a href="{% url 'homepage_gr' %}">ΑΡΧΙΚΗ ΣΕΛΙΔΑ</a></li>
+                <li><span>ΠΡΟΟΡΙΣΜΟΙ</span></li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- banner end -->
+
+    <!-- blog -->
+    <section class="knsl-p-100-100">
+      <img src="img/palm.svg" class="knsl-deco-left" alt="palm">
+        <div class="container">
+            <div class="row align-items-center">
+                {% for ele in object_list %}
+                    <div class="col-lg-4">
+                        <!-- blog card -->
+                        <div class="knsl-blog-card">
+                            <div class="knsl-cover-frame">
+                                <a href="{{ ele.get_absolute_url }}"><img src="{{ ele.image.url }}" alt="cover"></a>
+                            </div>
+                            <div class="knsl-description-frame">
+                                <div class="knsl-room-features">
+                                    <div class="knsl-feature">
+                                        <div class="knsl-icon-frame knsl-icon-author"></div>
+                                        <span>{{ ele.category }}</span>
+                                    </div>
+                                  
+                                </div>
+                                <a href="{{ ele.get_absolute_url }}">
+                                    <h4 class="knsl-mb-20">{{ ele }}</h4>
+                                </a>
+                                <div class="knsl-text-light knsl-text-sm">{{ ele.text|safe }}</div>
+                            </div>
+                        </div>
+                        <!-- blog card end -->
+
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

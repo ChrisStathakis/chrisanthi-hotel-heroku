@@ -1,0 +1,35 @@
+{% load static %}
+
+ <!-- top bar -->
+ <div class="knsl-top-bar">
+    <div class="container">
+      <div class="knsl-left-side">
+        <!-- logo -->
+        <a href="{% url 'homepage_eng' %}" class="knsl-logo-frame">
+          <img src="{% static 'my_photos/logo.jpg' %}" alt="Menexes">
+        </a>
+        <!-- logo end -->
+      </div>
+      <div class="knsl-right-side">
+        <!-- menu -->
+        <div class="knsl-menu">
+          <nav>
+            <ul>
+                <li><a href="{% url 'homepage_eng' %}">HOMEPAGE</a></li>
+                <li><a href="{% url 'about_us_eng' %}">ABOUT US</a></li>
+                <li><a href="{% url 'room_list_eng' %}">ROOMS</a></li>
+                <li><a href="{% url 'discover_list_eng' %}">DESTINATIONS</a></li>
+                <li><a href="{% url 'contact_eng' %}">CONTACT</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <!-- action button end -->
+        <a style='color:blue' href={{ greek_link }}><img src="{% static 'my_photos/gr.png' %}"> </a>
+      </div>
+      <!-- menu button -->
+      <div class="knsl-menu-btn"><span></span></div>
+      <!-- menu button end -->
+    </div>
+  </div>
+  <!-- top bar end -->

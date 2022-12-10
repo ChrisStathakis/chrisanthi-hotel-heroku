@@ -1,0 +1,304 @@
+<!DOCTYPE html> {% load static %}
+<html lang="zxx">
+
+<head>
+    {% include  'include/head.html' %}
+     {% block extra_cs %} {% endblock %}
+    <!-- page title -->
+    <title>  Menexes | {{ page_title }}</title>
+</head>
+
+<body>
+{% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <!-- Modal -->
+                    <div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Message</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            {{ message }}
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+            {% endfor %}
+        </ul>
+{% endif %}
+{% block content %}
+    <!-- page wrapper -->
+    <div class="knsl-app">
+            {% include 'include/navbar_eng.html' %}
+
+            <!-- datepicker frame -->
+            <div class="knsl-datepicker-place"></div>
+
+            <!-- banner -->
+            <section class="knsl-banner">
+                      <div class="knsl-cover-frame">
+                        <img src="{% static 'my_photos/test_1.jpg' %}" alt="banner" class="knsl-parallax">
+                      </div>
+                      <div class="knsl-overlay"></div>
+
+                      <div class="knsl-banner-content">
+                        <div class="container">
+                          <div class="knsl-main-title">
+                            <div class="knsl-white">
+                              <!-- main-title -->
+                              <h1 class="knsl-center knsl-mb-10">Welcome to Menexes</h1>
+                              <div class="knsl-mb-30 knsl-center">You can find us in Monemvasia Kastro</div>
+                            </div>
+                          </div>
+                            {% comment %}
+                          <div class="knsl-book-form knsl-book-form-2">
+                            <form>
+                              <div class="row align-items-center">
+                                <div class="col-12 col-lg-3">
+                                  <div class="knsl-input-frame knsl-book-form-2">
+                                    <label for="check-in">Check in</label>
+                                    <input id="check-in" type="text" class="datepicker-here" data-position="bottom left" placeholder="Select date" autocomplete="off" readonly="readonly">
+                                  </div>
+                                </div>
+                                <div class="col-12 col-lg-3">
+                                  <div class="knsl-input-frame">
+                                    <label for="check-out" class="knsl-add-icon">Check out</label>
+                                    <input id="check-out" type="text" class="datepicker-here" data-position="bottom left" placeholder="Select date" autocomplete="off" readonly="readonly">
+                                  </div>
+                                </div>
+                                <div class="col-6 col-lg-3">
+                                  <div class="knsl-select-frame">
+                                    <label for="person">Person</label>
+                                    <select id="person">
+                                      <option value="1">1</option>
+                                      <option value="2">2</option>
+                                      <option value="3">3</option>
+                                      <option value="4" disabled>4</option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="col-6 col-lg-2">
+                                  <div class="knsl-select-frame">
+                                    <label for="children">Childrens</label>
+                                    <select id="children">
+                                      <option value="1">1</option>
+                                      <option value="2">2</option>
+                                      <option value="3">3</option>
+                                      <option value="4" disabled>4</option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="col-12 col-lg-1 text-center">
+                                  <button type="submit" class="knsl-btn"><img src="{% static 'img/icons/search.svg' %}" class="knsl-zoom" alt="icon"><span>Serch room</span></button>
+                                </div>
+                              </div>
+                            </form>
+                          </div>
+                            {% endcomment %}
+                        </div>
+                      </div>
+                    </section>
+            <!-- banner end -->
+
+            <!-- features -->
+            <section id="knsl-triger-1">
+
+              <div class="container">
+
+                <!-- features card -->
+                <div class="knsl-features-card" style="margin-top: -80px;">
+
+                  <div class="row">
+                    <div class="col-6 col-lg-6">
+
+                      <!-- icon box -->
+                      <div class="knsl-icon-box">
+                        <i class="fa fa-phone fa-3x" style="margin-bottom: 3%"></i>
+                        <h5>Phone: 6939899187</h5>
+                      </div>
+                      <!-- icon box end -->
+
+                    </div>
+                    <div class="col-6 col-lg-6">
+
+                      <!-- icon box -->
+                      <div class="knsl-icon-box">
+                        <i class="fa fa-mail-bulk fa-3x" style="margin-bottom: 3%"></i>
+                        <h5>Email: xrysman@gmail.com</h5>
+                      </div>
+                      <!-- icon box end -->
+
+                    </div>
+
+
+                  </div>
+
+                </div>
+                <!-- features card end -->
+
+              </div>
+            </section>
+            <!-- features end -->
+
+            <!-- about -->
+            <section class="knsl-p-100-100">
+
+              <div class="container">
+                <div class="knsl-about-card">
+                  <div class="row no-gutters">
+                    <div class="col-lg-6">
+                      <div class="knsl-about-photo">
+                        <img src="{% static 'my_photos/about_us.jpg' %}" alt="cover">
+                      </div>
+                    </div>
+                    <div class="col-lg-6 align-self-center">
+                      <div class="knsl-about-text">
+                        <div class="knsl-title-frame">
+                          <h2 class="knsl-mb-20">About us</h2>
+                          <p class="knsl-mb-30">
+                            In beautiful Monemvasia, a true love<br>
+                            He comes to us from the old days, much to teach us<br>
+                            They adorn our beautiful history with grace<br>
+                            Fiorelli and Melica our beautiful couple<br>
+                            Where the kitapias wrote their love in the castle<br>
+                            And it kindled and covered the highest palaces<br>
+                            We will also drink malvasia amber at their weddings
+                            My beautiful Monemvasia, the pride of the world<br>
+                          </p>
+                          <a href="{% url 'about_us_eng' %}" class="knsl-btn knsl-btn-md">Learn more..</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 order-lg-2">
+                      <div class="knsl-about-photo">
+                        <img src="{% static 'my_photos/destinations.jpg' %}" alt="cover">
+                      </div>
+                    </div>
+                    <div class="col-lg-6 align-self-center">
+                      <div class="knsl-about-text">
+                        <div class="knsl-title-frame">
+                          <h2 class="knsl-mb-20">Destinations</h2>
+                          <p class="knsl-mb-30">The Castle City of Monemvasia is not a destination, it is an experience.
+                              That's why we gathered some of the best destinations to experience it.</p>
+                          <a href="{% url 'discover_list_eng' %}" class="knsl-btn knsl-btn-md">Learn more...</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </section>
+            <!-- about end -->
+
+
+            <!-- rooms -->
+            <section class="knsl-transition-bottom" style="background-color: #ECFAFB">
+              <img src="{% static 'img/palm.svg' %}" class="knsl-deco-left" alt="palm">
+              <div class="container">
+                <div class="row align-items-center">
+                  <div class="col-lg-12">
+
+                    <div class="knsl-center knsl-title-frame knsl-scroll-animation knsl-mb-100">
+                      <h2 class="knsl-mb-20">Rooms</h2>
+                      <p class="knsl-mb-30">Consectetur adipisicing elit. Nihil, illum voluptate eveniet ex fugit ea delectus, sed voluptatem. Laborum accusantium libero commodi id officiis itaque esse adipisci, necessitatibus asperiores, illo odio.</p>
+                      <a href="{% url 'room_list_eng' %}" class="knsl-btn knsl-btn-md">More</a>
+                    </div>
+
+                  </div>
+                  <div class="col-lg-12">
+                    <div class="swiper-container knsl-uni-slider">
+                      <div class="swiper-wrapper">
+                          {% for room in rooms %}
+                              <div class="swiper-slide">{% include 'include/room_card_eng.html' %}</div>
+                          {% endfor %}
+                      </div>
+                    </div>
+
+                      <!-- slider navigation -->
+                      <div class="knsl-uni-slider-nav-panel">
+                        <div class="knsl-uni-slider-pagination"></div>
+                        <div class="knsl-uni-nav">
+                          <div class="knsl-uni-slider-prev"><i class="fas fa-arrow-left"></i></div>
+                          <div class="knsl-uni-slider-next"><i class="fas fa-arrow-right"></i></div>
+                        </div>
+                      </div>
+                      <!-- slider navigation end -->
+                  </div>
+                </div>
+              </div>
+            </section>
+            <!-- rooms end -->
+
+            <!-- services -->
+            <section class="knsl-p-100-80">
+              <div class="container">
+                <div class="row">
+                  <div class="col-lg-12">
+
+                    <div class="knsl-center knsl-title-frame knsl-scroll-animation knsl-mb-100">
+                      <h2 class="knsl-mb-20">Destinations</h2>
+                      <p class="knsl-mb-30">Consectetur adipisicing elit. Nihil, illum voluptate eveniet ex fugit ea delectus, sed voluptatem. Laborum accusantium libero commodi id officiis itaque esse adipisci, necessitatibus asperiores, illo odio.</p>
+                      <a href="{% url 'discover_list_eng' %}" class="knsl-btn knsl-btn-md">More</a>
+                    </div>
+
+                  </div>
+                    {% for ele in discovers %}
+                        <div class="col-lg-4">
+                            {% include 'include/destination_card_eng.html' %}
+                        </div>
+                    {% endfor %}
+
+                </div>
+              </div>
+            </section>
+            <!-- services end -->
+
+
+            <!-- blog -->
+            <section class="knsl-p-0-80" style="background-color: #ECFAFB">
+              <img src="{% static 'img/palm.svg' %}" class="knsl-deco-right" alt="palm">
+              <div class="container">
+                <div class="row">
+                    <div class="col-3"></div>
+                  <div class="col-lg-6">
+
+                    <div class="knsl-center knsl-title-frame knsl-scroll-animation knsl-mb-100">
+                      <h2 class="knsl-mb-20">Our Newsletter</h2>
+                      <p class="knsl-mb-30">Learn first our news!</p>
+                        <form method="post" class="form" action="{% url 'newsletter:newsletter_valid_form_eng' %}">
+                            {% csrf_token  %}
+                            <input name="email" type="email" placeholder="Email.." class="form-control" required>
+                            <button type="submit" class="btn-success btn">Subscribe </button>
+                        </form>
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+            </section>
+            <!-- blog end -->
+
+
+
+
+
+
+          </div>
+          <!-- page wrapper end -->
+
+  {% endblock %}
+{% include 'include/footer_eng.html' %}
+{% include 'include/js.html' %}
+</body>
+
+
+
+</html>

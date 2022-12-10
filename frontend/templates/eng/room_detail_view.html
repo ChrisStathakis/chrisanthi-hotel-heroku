@@ -1,0 +1,159 @@
+{% extends 'eng/index.html' %} {% load static %}
+
+{% block content %}
+
+     <!-- page wrapper -->
+      <div class="knsl-app">
+        {% include 'include/navbar_eng.html' %}
+
+        <!-- banner -->
+        <section class="knsl-banner-simple knsl-transition-bottom">
+          <img src="{% static 'img/palm.svg' %}" class="knsl-deco-left" alt="palm">
+          <img src="{% static 'img/palm.svg' %}" class="knsl-deco-right" alt="palm">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12">
+
+                <div class="knsl-center knsl-title-frame">
+                  <h1 class="knsl-mb-20 knsl-h1-inner">{{ room }}</h1>
+                  <ul class="knsl-breadcrumbs">
+                    <li><a href="{% url 'homepage_eng' %}">Homepage</a></li>
+                    <li><a href="{% url 'room_list_eng' %}">Rooms</a></li>
+                    <li><span>{{ object.title_eng }}</span></li>
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- banner end -->
+
+      <!-- room -->
+    <div class="knsl-p-100-100">
+      <div class="container">
+        <div class="row" data-sticky-container>
+          <div class="col-lg-8">
+
+           <div class="knsl-room-detail-slider-frame knsl-mb-60">
+              <div class="swiper-container knsl-rd-slider-2 knsl-mb-10">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <a data-fancybox="gallery" href="{{ object.image.url }}" class="knsl-room-detail-photo-lg" data-swiper-parallax="-80" data-swiper-parallax-scale="1.2"
+                       data-swiper-parallax-duration="400">
+                      <img src="{{ object.image.url }}" alt="{{ object }}">
+                      <span class="knsl-zoom"><i class="fas fa-search-plus"></i></span>
+                    </a>
+                  </div>
+                    {% for image in object.my_images %}
+                          <div class="swiper-slide">
+                            <a data-fancybox="gallery" href="{{ image.image.url }}" class="knsl-room-detail-photo-lg" data-swiper-parallax="-80" data-swiper-parallax-scale="1.2"
+                               data-swiper-parallax-duration="400">
+                              <img src="{{ image.image.url }}" alt="room">
+                              <span class="knsl-zoom"><i class="fas fa-search-plus"></i></span>
+                            </a>
+                          </div>
+                    {% endfor %}
+
+                </div>
+              </div>
+              <div class="swiper-container knsl-rd-slider-1">
+                  <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                          <div class="knsl-room-detail-photo-sm">
+                              <img src="{{ room.image.url }}" alt="room">
+                          </div>
+                      </div>
+                      {% for image in object.my_images %}
+                          <div class="swiper-slide">
+                              <div class="knsl-room-detail-photo-sm"><img src="{{ image.image.url }}" alt="room">
+                              </div>
+                          </div>
+                        {% endfor %}
+
+                </div>
+              </div>
+            </div>
+
+            <!-- description -->
+            <section class="knsl-mb-60 knsl-scroll-animation">
+              <h3 class="knsl-mb-40">{{ room.title_eng }}</h3>
+              <p>{{ object.description_eng|safe }}</p>
+            </section>
+            <!-- description end -->
+
+            <!-- map -->
+            <section>
+              <div class="row">
+                <div class="col-lg-12">
+                  <h3 class="knsl-mb-40 knsl-scroll-animation">Location</h3>
+                </div>
+                <div class="col-lg-12">
+
+                  <div class="knsl-map-frame knsl-mb-60">
+                    <div class="knsl-lock"><i class="fas fa-lock"></i></div>
+                    {{ object.location|safe }}
+                  </div>
+
+                </div>
+              </div>
+            </section>
+            <!-- map end -->
+
+
+
+
+
+
+          </div>
+          <div class="col-lg-4">
+            <!-- sidebar -->
+            <div class="knsl-sticky knsl-stycky-right" data-margin-top="100">
+
+              <!-- room info -->
+              <div class="knsl-room-features-lg knsl-mb-20">
+                <div class="knsl-feature">
+                  <div class="knsl-icon-frame"><img src="{% static 'img/icons/bed.svg' %}" alt="icon"></div>
+                  <span>{{ room.maximum_people }} Guests</span>
+                </div>
+                <div class="knsl-feature">
+                  <div class="knsl-icon-frame"><img src="{% static 'img/icons/square.svg' %}" alt="icon"></div>
+                  <span>{{ room.room_size }} sq</span>
+                </div>
+              </div>
+              <!-- room info end -->
+
+              <div class="knsl-price-card knsl-mb-20">
+
+                <a href="tel:6939899187" class="knsl-btn">Reservation</a>
+              </div>
+
+              <div class="knsl-room-features-lg knsl-mb-20">
+                <div class="knsl-feature">
+                  <div class="knsl-icon-frame"><img src="{% static 'img/icons/bed.svg' %}" alt="icon"></div>
+                  <span>{{ room.get_bed_size_eng_display }}</span>
+                </div>
+              </div>
+                <div class="knsl-room-features-lg knsl-mb-20"><h5>ΠΑΡΟΧΕΣ</h5></div>
+                 <!-- features -->
+                {% for ele in object.chars.all %}
+                    <div class="knsl-room-features-lg knsl-mb-20">
+                        <div class="knsl-feature">
+
+                          <span>{{ ele.title_eng }}</span>
+                        </div>
+                      </div>
+                {% endfor %}
+
+            </div>
+            <!-- sidebar end -->
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- room end -->
+
+      </div>
+      
+{% endblock %}
